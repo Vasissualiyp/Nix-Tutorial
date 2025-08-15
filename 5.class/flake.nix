@@ -70,6 +70,8 @@
 		python = pkgs.python312Packages.python;
 		pythonEnv = (python.withPackages (ps: with ps; [
 		  numpy
+		  scipy
+		  matplotlib
 		  class
 		]));
 	  in
@@ -77,6 +79,7 @@
 		devShell = pkgs.mkShell {
 		  buildInputs = with pkgs; [
 			pythonEnv
+			feh
 			nano
 		  ];
 		  shellHook = ''

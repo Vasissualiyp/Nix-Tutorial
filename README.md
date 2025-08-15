@@ -151,3 +151,11 @@ using everything we have learned so far.
 Navigate to activity 5 directory, and develop the flake.
 You can look at the contents of it: the flake includes packaged version of CLASS
 (it is not in nixpkgs, so I had to do it myself).
+
+There you should be able to run `python create_TF.py`, and the code will produce
+CLASS-generated matter power spectrum, saved to `out.png`, which you can view
+in any way you like (if you don't know how, I added `feh` to the shell, so you 
+should just be able to run `feh out.png`)
+
+You can try running the code with your local python installation, and it will probably
+fail (unless you have installed class python package on your system).

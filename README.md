@@ -142,3 +142,12 @@ of scenarios, unless our civilization collapses)
 I also added a message that you get when you just start the flake with `shellHook`.
 There you can personalize it, or add environment variables and other things you 
 might need in your environment.
+
+# 5. Finally, cosmology
+
+Let's look at Nix in action, by constructing a matter power spectrum with CLASS
+using everything we have learned so far.
+
+Navigate to activity 5 directory, and develop the flake.
+You can look at the contents of it: the flake includes packaged version of CLASS
+(it is not in nixpkgs, so I had to do it myself).

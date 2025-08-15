@@ -62,3 +62,53 @@ Then run `nix-shell`. It should pull `cowsay` package, and now you shold be able
 use it the same way as in the previous activity. 
 
 You can see syntax for nix shell in `shell.nix`. Try adding your own packages!
+
+Once you're done experimenting, exit the shell and navigate back with 
+```
+cd ..
+```
+
+# 3. Python Nix shell
+
+Making cow say stuff is amusing, but quite useless. How about we do something productive?
+
+Navigate to the directory of the 3rd activity and look at contents of `shell.nix`.
+(If you don't know how, try running `nano shell.nix`. If you don't have nano,
+running this shell should give it to you).
+
+In this shell, by default, we have python 3.12 with numpy. I have a few other packages
+that we usually use commented out - you can comment them back by removing `#` symbol.
+
+This shell also includes an example of how you can define variables with Nix.
+You do so in `let` block, and the actual code that you want Nix to run you put 
+in `in` block. For instance, this shell only pulls `nano` and our python 
+environment, that we define in `pythonEnv` variable.
+
+Try running `python test.py`. This test script will tell you version of your python
+and some packages that we have/don't have in the current shell.
+You can also try running this test script outside of nix shell to see which of these 
+packages you have installed on your system, and you can compare to the packages
+accessible from the nix shell.
+
+## Task 3.1
+
+Try changing the shell to use python 3.10 instead of 3.12
+
+## Task 3.2
+
+Try having both python 3.10 and 3.12 accessible from a single shell
+(Hint: you can use different python binaries via `python310` or `python312` 
+instead of `python`)
+
+## Task 3.3
+
+Try adding `mpi` as another (non-python) package. It will automatically install MPI 
+into your shell, taking care of library paths, environment variables, etc.!
+
+You can check that it is working by running:
+```
+mpirun -np 2 python test.py
+```
+
+# 4. Nix flakes
+

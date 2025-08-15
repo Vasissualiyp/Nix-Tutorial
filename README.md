@@ -97,7 +97,7 @@ Try changing the shell to use python 3.10 instead of 3.12
 ## Task 3.2
 
 Try having both python 3.10 and 3.12 accessible from a single shell
-(Hint: you can use different python binaries via `python310` or `python312` 
+(Hint: you can use different python binaries via `python3.10` or `python3.12` 
 instead of `python`)
 
 ## Task 3.3

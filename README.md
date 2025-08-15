@@ -112,3 +112,33 @@ mpirun -np 2 python test.py
 
 # 4. Nix flakes
 
+Those who pay very close attention might have noticed that at no point we declare
+our versions of packages when working with shells, thus Nix's claim of reproducibility
+doesn't hold: if you were to run the same shell a year later, it will give
+you the newest package versions... But all is not lost!
+
+Nix flakes are an "experimental" feature (but everyone mostly uses them and not 
+the shells), that "locks" the versions of packages, allowing full bit-by-bit 
+reproducibility that Nix promotes. To check out an example of how a flake for the 
+same shell from previos activity would look like, navigate to the 4th activity
+directory, and run:
+```
+nix develop --experimental-features 'nix-command flakes'
+```
+(If you enable flakes in your nix config, you can get away with just `nix develop`,
+but we won't go into that today).
+
+You then should be able to run the `test.py` script the same way.
+
+Inspecting the `flake.nix`, you can see a lot more boilerplate...
+Which is needed for reproducibility and convenience.
+You can also inspect the `flake.lock` file - it gets created when you first 
+develop the flake, and it "locks" the versions of packages.
+So if you were to develop this flake 10 years later, you will get
+bit-by-bit exactly the same environment (assuming that you can still
+download all the packages from their mirrors, which is the case in 99.99999% 
+of scenarios, unless our civilization collapses)
+
+I also added a message that you get when you just start the flake with `shellHook`.
+There you can personalize it, or add environment variables and other things you 
+might need in your environment.
